@@ -96,7 +96,7 @@ public:
 	// and word ids.
 	static void UpdateCorpusFromWord(Corpus& corpus, 
 																	 string& word,
-																	 int word_id);
+																	 int& word_id);
 	// Read files into corpus.
 	static void ReadCorpusInput(Corpus& corpus,
 															vector<string>& filenames);

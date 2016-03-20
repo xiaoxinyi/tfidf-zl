@@ -117,7 +117,7 @@ int Corpus::getWordId(const string& word) {
 
 void CorpusUtils::UpdateCorpusFromWord(Corpus& corpus,
 																			 string& word,
-																			 int word_id) {
+																			 int& word_id) {
 	word_id = corpus.getWordId(word);
 
 	if (word_id == -1) {
