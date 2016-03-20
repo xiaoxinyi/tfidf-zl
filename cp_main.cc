@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "dataset.h"
 using namespace std;
 
@@ -10,6 +11,11 @@ int main() {
 	CorpusUtils::ReadCorpusInput(corpus, filenames);
 	CorpusUtils::WriteCorpusOutput(corpus, "corpus.txt");
 	CorpusUtils::WriteVocabularyOutput(corpus, "vocabulary.txt");
-	
+
+	cout << "there are " << corpus.getDocuments() << " documents in corpus" << endl;
+	cout << "vacabulary size : " << corpus.getVocabSize() << endl;
+	cout << "total word number :" << corpus.getWordNo() << endl;
+
+
 	return 0;
 }

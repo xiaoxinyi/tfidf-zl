@@ -11,9 +11,9 @@ FLAGS = -g -Wall -std=c++11
 
 LIBS =
 
-default: cp_main.cc
+default: cp_main
 
-hdp: $(OBJS) 
+cp_main: $(OBJS) 
 	$(COMPILER) $(FLAGS) $(OBJS) -o cp_main  $(LIBS)
 
 %.o: %.cc
