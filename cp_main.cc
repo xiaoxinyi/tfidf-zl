@@ -16,6 +16,6 @@ int main() {
 	cout << "vacabulary size : " << corpus.getVocabSize() << endl;
 	cout << "total word number :" << corpus.getWordNo() << endl;
 
-
+	CorpusUtils::CheckSum(corpus);
 	return 0;
 }

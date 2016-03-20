@@ -164,6 +164,24 @@ void CorpusUtils::WriteVocabularyOutput(Corpus& corpus,
 	ofs.close();
 }
 
+void CorpusUtils::CheckSum(Corpus& corpus) {
+	int documents = corpus.getDocuments();
+	int corpus_words = 0;
+	for (int i = 0; i < documents; i++) {
+		Document& document = corpus.getMutableDocument(i);
+		cout << "document " << i << " : " 
+				 <<  document.getWordNo() << " words, "
+				 << document.getTermNo() << " distinct words." << endl;
+		corpus_words += document.getWordNo();
+	}
+
+	if (corpus_words == corpus.getWordNo()) {
+		cout << "CHECK OK!" << endl;
+	} else {
+		cout << "CHECK BAD!" << endl;
+	}
+}
+
 // Corpus::Corpus(string corpus_file_name, string vocab_dict_file_name) :vocab_size_(0), corpus_file_name_(corpus_file_name), vocab_dict_file_name_(vocab_dict_file_name) {
 // 	if (load_vocab_dict()) {
 // 		cout << "Vocabulary dictionary is loaded." << endl;

@@ -106,6 +106,8 @@ public:
 
 	static void WriteVocabularyOutput(Corpus& corpus,
 																		const string& filename);
+
+	static void CheckSum(Corpus& corpus);
 };
 
 #endif
