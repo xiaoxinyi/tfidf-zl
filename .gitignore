@@ -3,7 +3,7 @@
 *.tags*
 *.DSYM
 *.DS_Store
- P
+
 # Compiled Object files
 *.slo
 *.lo

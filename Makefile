@@ -1,19 +1,24 @@
 
-CXX = g++
-INCLUDES = 
-LIBS     = -lstdc++
-CXXFLAGS = $(INCLUDES) -Wall -g -std=c++14
-LIBFLAGS = 
-AR       = ar
+COMPILER = g++
+OBJS = dataset.o cp_main.o
+SOURCE = $(OBJS:.o=.cc)
 
-.SUFFIXES: .cpp .o
+FLAGS = -g -Wall -std=c++11
+# FLAGS = -g -Wall  -I/usr/local/Cellar/gsl/1.16/include -std=c++11
 
-# Create a list of source files.
-SOURCES  = $(shell ls *.cpp)
+# GSL library
+# LIBS = -lgsl -lgslcblas -L/usr/local/Cellar/gsl/1.16/lib
 
-all : Main
+LIBS =
 
-Main: $(SOURCES)
-	$(CXX) -o Main $(CXXFLAGS) $(SOURCES) $(LIBS)
-clean:
-	rm -rf *.o Main
+default: cp_main.cc
+
+hdp: $(OBJS) 
+	$(COMPILER) $(FLAGS) $(OBJS) -o cp_main  $(LIBS)
+
+%.o: %.cc
+	$(COMPILER) -c $(FLAGS) -o $@  $< 
+
+.PHONY: clean
+clean: 
+	rm -f *.o
