@@ -1,7 +1,7 @@
 ###C++###
 *.tags
 *.tags*
-*.DSYM
+*.dSYM
 *.DS_Store
 
 # Compiled Object files
