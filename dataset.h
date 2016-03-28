@@ -47,7 +47,8 @@ public:
 																Corpus& corpus);
 
 	static void WriteDocumentOutput(Document& document,
-																	ofstream& ofs);
+																	ofstream& ofs,
+																	bool unique);
 };
 
 // Corpus contains vocabulary size, the total word number,
@@ -102,7 +103,8 @@ public:
 															vector<string>& filenames);
 
 	static void WriteCorpusOutput(Corpus& corpus, 
-																const string& filename);
+																const string& filename,
+																bool unique);
 
 	static void WriteVocabularyOutput(Corpus& corpus,
 																		const string& filename);

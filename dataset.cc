@@ -80,11 +80,16 @@ void DocumentUtils::ReadDocumentInput(Document& document,
 }
 
 void DocumentUtils::WriteDocumentOutput(Document& document,
-																				ofstream& ofs) {
+																				ofstream& ofs,
+																				bool unique) {
 	assert(ofs.is_open());
 
 	unordered_map<int, int>& word_counts = document.getMutableWordCounts();
-	ofs << document.getWordNo();
+	if (unique) {
+		ofs << document.getTermNo();
+	} else {
+		ofs << document.getWordNo();	
+	}
 	for (auto& p : word_counts) {
 		ofs << " " << p.first << ":" << p.second;
 	}
@@ -142,13 +147,14 @@ void CorpusUtils::ReadCorpusInput(Corpus& corpus,
 }
 
 void CorpusUtils::WriteCorpusOutput(Corpus& corpus, 
-																		const string& filename) {
+																		const string& filename,
+																		bool unique) {
 	ofstream ofs(filename);
 	assert(ofs.is_open());
 	int documents = corpus.getDocuments();
 	for (int i = 0; i < documents; i++) {
 		Document& document = corpus.getMutableDocument(i);
-		DocumentUtils::WriteDocumentOutput(document, ofs);
+		DocumentUtils::WriteDocumentOutput(document, ofs, unique);
 	}
 	ofs.close();
 }
